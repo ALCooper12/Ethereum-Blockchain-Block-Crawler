@@ -46,13 +46,13 @@ Make sure the following are installed first:
     python3 -m pip install -r requirements.txt
     ```
 
-3. **Run the `main.py` file**: Now all you have to do is run the command below and you're all set! But make sure to replace the JSON-RPC endpoint url, and SQLite database name with your own
+3. **Run the `main.py` file**: Now all you have to do is run the command below and you're all set! But make sure to replace the JSON-RPC endpoint url, SQLite database name, and block range with your own values and the correct block range: 18908800-18909050
 
     ```bash
     python3 main.py \
     https://rpc.quicknode.pro/key \
     ethereum.sqlite3 \
-    18908800-18909050
+    200-300
     ```
 
     If everything works out, you should see something like this in your terminal. The output should also appear inside of your newly created `largest_volume_of_ether.txt` file as well
@@ -73,22 +73,22 @@ Make sure the following are installed first:
 
 -   You can run this command if you're unsure what each input argument means, or if you just want more context
 
-        ```bash
-        (venv) arianna@Ariannas-MBP ~ % python3 main.py -h
-        usage: main.py [-h] json_rpc_endpoint sqlite_file block_range
+    ```bash
+    (venv) arianna@Ariannas-MBP ~ % python3 main.py -h
+    usage: main.py [-h] json_rpc_endpoint sqlite_file block_range
 
-        Block Crawler that retrieves Ethereum Mainnet transactions within a given block range, writes them to a database, and queries for the block that had the largest volume of ether transferred between 2024-01-01 00:00:00 and 2024-01-01 00:30:00
+    Block Crawler that retrieves Ethereum Mainnet transactions within a given block range, writes them to a database, and queries for the block that had the largest volume of ether transferred between 2024-01-01 00:00:00         and 2024-01-01 00:30:00
 
-        positional arguments:
-        json_rpc_endpoint  A JSON-RPC endpoint to call an Ethereum client, (ex. https://rpc.quicknode.pro/key)
-        sqlite_file        Path to the SQLite file to write to, (ex. db.sqlite3)
-        block_range        A block range formatted as 'start-end', (ex. 200-300)
+    positional arguments:
+    json_rpc_endpoint  A JSON-RPC endpoint to call an Ethereum client, (ex. https://rpc.quicknode.pro/key)
+    sqlite_file        Path to the SQLite file to write to, (ex. db.sqlite3)
+    block_range        A block range formatted as 'start-end', (ex. 200-300)
 
-        options:
-        -h, --help         show this help message and exit
+    options:
+    -h, --help         show this help message and exit
 
-        For more information, refer to the relayer-technical-challenge.pdf file
-        ```
+    For more information, refer to the relayer-technical-challenge.pdf file
+    ```
 
     <br><br>
 
